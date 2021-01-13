@@ -9,6 +9,7 @@
 class Menu : public ItemList {
 public:
 	Menu(std::string fileLocation);
+	void loadMenu(std::string menuLocation);
 	std::string toString();
 };
 

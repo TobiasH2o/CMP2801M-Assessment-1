@@ -1,9 +1,11 @@
 #include "Item.h"
 #include <string>
 #include <sstream>
+#include <vector>
 
 ItemList::ItemList()
 {
+	std::vector<Item>;
 }
 
 std::string ItemList::toString() {

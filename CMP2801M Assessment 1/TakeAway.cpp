@@ -45,13 +45,19 @@ int main()
 		char* token;
 		token = strtok(cstr, " ");
 
+		//Clears console
+		system("CLS");
+
 		while (token != NULL)
 		{
 			parameters.push_back(token);
 			token = strtok(NULL, " ");
 		}
 
-		string command = parameters[0];
+		// Stops crashing if no input is provided
+		string command = "skip";
+		if(parameters.size() > 0)
+			command = parameters[0];
 
 		if (command.compare("menu") == 0) {
 			cout << menu.toString();
@@ -77,7 +83,8 @@ int main()
 
 		}
 
-		parameters.clear();
+		if(parameters.size() > 0)
+			parameters.clear();
 
 	}
 

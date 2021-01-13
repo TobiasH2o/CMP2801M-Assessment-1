@@ -1,6 +1,7 @@
 #include <string>
 #include <sstream>
 #include "Item.h"
+#include <iostream>
 
 
 Item::Item() {
@@ -11,7 +12,11 @@ Item::Item() {
 
 std::string Item::toString() {
 	std::ostringstream returnStream;
-	returnStream << "> " << name << " -- " << calories << "kcal -- $" << price;
+	returnStream << "> " << name << " -- " << calories << "kcal -- $";
+	std::string price = std::to_string(Item::price).substr(0, std::to_string(Item::price).find(".") + 3);
+
+	returnStream << price;
+
 	return returnStream.str();
 }
 
