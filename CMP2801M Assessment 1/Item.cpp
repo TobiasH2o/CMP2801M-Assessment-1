@@ -10,6 +10,8 @@ Item::Item() {
 	price = 0.0f;
 }
 
+Item::~Item() {}
+
 std::string Item::toString() {
 	std::ostringstream returnStream;
 	returnStream << "> " << name << " -- " << calories << "kcal -- $";
@@ -30,6 +32,10 @@ void Item::setPrice(float price) {
 
 void Item::setCalories(int calories) {
 	Item::calories = calories;
+}
+
+float Item::getPrice() {
+	return price;
 }
 
 Appetiser::Appetiser() {

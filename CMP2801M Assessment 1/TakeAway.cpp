@@ -56,7 +56,7 @@ int main()
 
 		// Stops crashing if no input is provided
 		string command = "skip";
-		if(parameters.size() > 0)
+		if (parameters.size() > 0)
 			command = parameters[0];
 
 		if (command.compare("menu") == 0) {
@@ -64,26 +64,45 @@ int main()
 		}
 		else if (command.compare("add") == 0)
 		{
-			Item * choice = new Item(); // you need to instantiate this using the menu object!
-			order.add(choice);
+			int number = 1;
+			if (parameters.size() > 1) {
+				for (int i = 1; i < parameters.size(); i++) {
+					Item* choice = menu.getItem(std::stoi(parameters[i])); // you need to instantiate this using the menu object!
+					if (choice != NULL) {
+						order.add(choice);
+					}
+				}
+			}
+			else {
+				cout << menu.toString();
+				cout << "> You must specify a menu item" << endl;
+			}
 
-			// You may also wish to implement the ability to add multiple items at once!
-			// e.g. add 1 5 9 
 		}
 		else if (command.compare("remove") == 0)
 		{
-
+		
 		}
 		else if (command.compare("checkout") == 0)
 		{
-
+			cout << order.toString();
 		}
-		else if (command.compare("help") == 0)
-		{
-
+		else if (command.compare("help") == 0) {
+			std::cout << "#################################################" << std::endl;
+			std::cout << "#> Restraunt Ordering                           #" << std::endl;
+			std::cout << "#> To view the menu type 'menu'                 #" << std::endl;
+			std::cout << "#> To finish your order type 'checkout'         #" << std::endl;
+			std::cout << "#> To exit type 'exit'                          #" << std::endl;
+			std::cout << "#> To add an item to your order type 'add'      #" << std::endl;
+			std::cout << "#> followed by the item numbers                 #" << std::endl;
+			std::cout << "#> e.g. add 1 5 3 7                             #" << std::endl;
+			std::cout << "#> To remove an item type 'remove'              #" << std::endl;
+			std::cout << "#> followed by the item and number              #" << std::endl;
+			std::cout << "#> e.g. remove 2 1                              #" << std::endl;
+			std::cout << "#################################################" << std::endl;
 		}
 
-		if(parameters.size() > 0)
+		if (parameters.size() > 0)
 			parameters.clear();
 
 	}

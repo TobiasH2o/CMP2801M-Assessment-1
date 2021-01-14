@@ -11,10 +11,12 @@ protected:
 	float price;
 public:
 	Item();
+	virtual ~Item();
 	std::string toString();
 	void setName(std::string name);
 	void setPrice(float price);
 	void setCalories(int calories);
+	float getPrice();
 };
 
 class Appetiser : public Item{
@@ -47,7 +49,7 @@ public:
 
 class ItemList{
 protected:
-	std::vector<Item> items;
+	std::vector<Item *> items;
 public:
 	ItemList();
 	virtual std::string toString() = 0;

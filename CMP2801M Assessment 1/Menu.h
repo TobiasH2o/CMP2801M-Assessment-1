@@ -11,6 +11,7 @@ public:
 	Menu(std::string fileLocation);
 	void loadMenu(std::string menuLocation);
 	std::string toString();
+	Item * getItem(int index);
 };
 
 #endif Menu_h
